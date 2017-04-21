@@ -4,6 +4,7 @@ define('DS', DIRECTORY_SEPARATOR);
 defined('SYSTEM_PATH') or define('SYSTEM_PATH', __DIR__ . DS);
 define('LIB_PATH', SYSTEM_PATH . 'library' . DS);
 define('APP_PATH', SYSTEM_PATH . '../app' . DS);
+defined('EXTEND_PATH') or define('EXTEND_PATH', SYSTEM_PATH . '../extend' . DS);
 // 载入Loader类
 require LIB_PATH . 'Loader.php';
 require SYSTEM_PATH . 'helper.php';

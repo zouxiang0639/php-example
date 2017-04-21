@@ -1,10 +1,12 @@
 <?php
 namespace app\index;
 
+use ext\index\Abc;
+
 class index
 {
     public function index()
     {
-        dump(1);
+        Abc::index();
     }
 }

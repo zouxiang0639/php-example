@@ -59,7 +59,8 @@ class Loader
         // 注册命名空间定义
         self::addNamespace([
             'system'    => LIB_PATH . DS,
-            'app'    => APP_PATH . DS
+            'app'    => APP_PATH . DS,
+            'ext'      => EXTEND_PATH . DS
         ]);
 
      /*   // 加载类库映射文件
