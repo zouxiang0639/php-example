@@ -241,8 +241,8 @@ class Loader
         unset($dispatch['action']);
         $controller = implode('\\', $dispatch);
         $controller = '\\app\\'.$controller;
-        if(is_object(new $controller())){
-          return  (new $controller())->$action();
+        if(is_object($obj =(new $controller())->$action())){
+            return  $obj;
         }
     }
 }
