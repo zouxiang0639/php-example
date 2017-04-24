@@ -30,3 +30,29 @@ function dump($var, $echo = true, $label = null, $flags = ENT_SUBSTITUTE)
         return $output;
     }
 }
+
+function url($url, $options = null)
+{
+    $get = function($options, $i = 1){
+        $get = '';
+        if($options != null){
+            foreach($options as $key => $value){
+                $operational = $i == 1 ? '?' : '#';
+                $get .= "{$operational}{$key}={$value}";
+                $i++;
+            }
+        }
+        return $get;
+    };
+
+    $urlPach = array_reverse(explode('/',$url));
+    $request = \system\Request::instance();
+
+    $url = $request->dispatch();
+    $url['module']  = isset($urlPach[2]) ? $urlPach[2] : $url['module'] ;
+    $url['controller']  = isset($urlPach[1]) ? $urlPach[1] : $url['controller'] ;
+    $url['action']  = isset($urlPach[0]) ? $urlPach[0] : $url['action'] ;
+    $http = $request->server('SCRIPT_NAME');
+    return "{$http}/{$url['module']}/{$url['controller']}/{$url['action']}".$get($options);
+
+}
